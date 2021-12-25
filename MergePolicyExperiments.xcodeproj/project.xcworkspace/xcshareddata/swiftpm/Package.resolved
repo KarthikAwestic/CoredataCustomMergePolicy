@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CommonInterfacePackage",
+        "repositoryURL": "https://github.com/Adaptavant/IOS-Common-Interface.git",
+        "state": {
+          "branch": null,
+          "revision": "46c9b040e6bc29765fb1289cbfec22c06e3a02c5",
+          "version": "0.0.7"
+        }
+      },
+      {
+        "package": "LoggerPackage",
+        "repositoryURL": "https://github.com/Adaptavant/IOS-Logger-Kit.git",
+        "state": {
+          "branch": null,
+          "revision": "12503412a15a6c4dda206309327f04a08938bbb2",
+          "version": "1.0.12"
+        }
+      },
+      {
+        "package": "SerializationKit",
+        "repositoryURL": "https://github.com/Adaptavant/IOS-Serialization-Kit",
+        "state": {
+          "branch": null,
+          "revision": "fa0b4f4f2857f31fd63fea5b7e28ff5d7718f057",
+          "version": "1.0.7"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON",
+        "state": {
+          "branch": "master",
+          "revision": "b3dcd7dbd0d488e1a7077cb33b00f2083e382f07",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "name": "index 0 - 123",
+    "info": "Default info 0"
+  },
+  {
+    "id": 1,
+    "name": "index 1 - 123",
+    "info": "Default info 1"
+  },
+  {
+    "id": 2,
+    "name": "index 2 - 123",
+    "info": "Default info 2"
+  },
+  {
+    "id": 3,
+    "name": "index 3 - 123",
+    "info": "Default info 3"
+  },
+  {
+    "id": 4,
+    "name": "index 4 - 123",
+    "info": "Default info 4"
+  }
+]
