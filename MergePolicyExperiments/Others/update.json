@@ -1,25 +1,21 @@
 [
   {
     "id": 0,
-    "name": "Updated name 0",
-    "info": "Updated info 0"
+    "name": "Karthik",
+    "info": "Flutter Developer",
+    "linkedContacts": [
+        {"id": 1, "name": "Updated 1"},
+        {"id": 2, "name": "Updated 2"}
+    ]
   },
   {
-    "id": 1,
-    "name": "Updated name 1",
-    "info": null
-  },
-  {
-    "id": 2,
-    "name": "Updated name 2"
-  },
-  {
-    "id": 3,
-    "name": "Updated name 3",
-    "info": "Updated info 3"
-  },
-  {
-    "id": 4,
-    "name": "Updated name 4"
+      "id": 1,
+      "name": "Vinoth",
+      "info": "Sr.iOS Developer",
+      "linkedContacts": [
+          {"id": 3, "name": "Updated 0"},
+          {"id": 4, "name": "Updated 1"},
+          {"id": 5, "name": "Updated 2"}
+      ]
   }
 ]

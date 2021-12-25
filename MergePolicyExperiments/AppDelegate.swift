@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-    lazy var persistentContainerError = createContainer(name: "error", policy: .error)
+    lazy var persistentContainerError = {
+        return createContainer(name: "error", policy: .error)
+    }()
     
     lazy var persistentContainerRollback = createContainer(name: "rollback", policy: .rollback)
     
@@ -48,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             container.viewContext.automaticallyMergesChangesFromParent = true
             container.viewContext.mergePolicy = policy
         })
-        setup(container: container)
+        //setup(container: container)
         return container
     }
     

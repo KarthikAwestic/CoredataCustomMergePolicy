@@ -12,6 +12,7 @@
 		25D034C32777365A00D168CF /* SerializationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 25D034C22777365A00D168CF /* SerializationKit */; };
 		25D034C62777367F00D168CF /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 25D034C52777367F00D168CF /* SwiftyJSON */; };
 		25D034C8277737AE00D168CF /* MergePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D034C7277737AE00D168CF /* MergePolicy.swift */; };
+		25D034CC2777414100D168CF /* LinkedContacts+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D034CA2777414100D168CF /* LinkedContacts+CoreDataProperties.swift */; };
 		5711D16B21F9F91C000213BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D16A21F9F91C000213BB /* AppDelegate.swift */; };
 		5711D16D21F9F91C000213BB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D16C21F9F91C000213BB /* TableViewController.swift */; };
 		5711D17021F9F91C000213BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5711D16E21F9F91C000213BB /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		5711D17521F9F91E000213BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5711D17421F9F91E000213BB /* Assets.xcassets */; };
 		5711D17821F9F91E000213BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5711D17621F9F91E000213BB /* LaunchScreen.storyboard */; };
 		5711D18421FA083A000213BB /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D18221FA083A000213BB /* Item+CoreDataClass.swift */; };
-		5711D18521FA083A000213BB /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D18321FA083A000213BB /* Item+CoreDataProperties.swift */; };
 		5711D18721FA0999000213BB /* ErrorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D18621FA0999000213BB /* ErrorTableViewController.swift */; };
 		5711D18921FA09A6000213BB /* RollbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D18821FA09A5000213BB /* RollbackTableViewController.swift */; };
 		5711D18B21FA09B2000213BB /* OverwriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5711D18A21FA09B2000213BB /* OverwriteTableViewController.swift */; };
@@ -31,6 +31,7 @@
 		25D034BC2777347A00D168CF /* setup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = setup.json; sourceTree = "<group>"; };
 		25D034BE2777348100D168CF /* update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update.json; sourceTree = "<group>"; };
 		25D034C7277737AE00D168CF /* MergePolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergePolicy.swift; sourceTree = "<group>"; };
+		25D034CA2777414100D168CF /* LinkedContacts+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinkedContacts+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5711D16721F9F91C000213BB /* MergePolicyExperiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MergePolicyExperiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5711D16A21F9F91C000213BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5711D16C21F9F91C000213BB /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +41,6 @@
 		5711D17721F9F91E000213BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5711D17921F9F91E000213BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5711D18221FA083A000213BB /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5711D18321FA083A000213BB /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5711D18621FA0999000213BB /* ErrorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTableViewController.swift; sourceTree = "<group>"; };
 		5711D18821FA09A5000213BB /* RollbackTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollbackTableViewController.swift; sourceTree = "<group>"; };
 		5711D18A21FA09B2000213BB /* OverwriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverwriteTableViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 		5711D18121FA0829000213BB /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				25D034CA2777414100D168CF /* LinkedContacts+CoreDataProperties.swift */,
 				5711D18221FA083A000213BB /* Item+CoreDataClass.swift */,
-				5711D18321FA083A000213BB /* Item+CoreDataProperties.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -217,13 +217,13 @@
 				5711D18F21FA0A15000213BB /* StoreTrumpTableViewController.swift in Sources */,
 				5711D18721FA0999000213BB /* ErrorTableViewController.swift in Sources */,
 				5711D16D21F9F91C000213BB /* TableViewController.swift in Sources */,
+				25D034CC2777414100D168CF /* LinkedContacts+CoreDataProperties.swift in Sources */,
 				5711D16B21F9F91C000213BB /* AppDelegate.swift in Sources */,
 				5711D18421FA083A000213BB /* Item+CoreDataClass.swift in Sources */,
 				25D034C8277737AE00D168CF /* MergePolicy.swift in Sources */,
 				5711D18921FA09A6000213BB /* RollbackTableViewController.swift in Sources */,
 				5711D18D21FA09CB000213BB /* ObjectTrumpTableViewController.swift in Sources */,
 				5711D17321F9F91C000213BB /* MergePolicyExperiments.xcdatamodeld in Sources */,
-				5711D18521FA083A000213BB /* Item+CoreDataProperties.swift in Sources */,
 				5711D18B21FA09B2000213BB /* OverwriteTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

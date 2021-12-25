@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyJSON
 
 
 class TableViewController: UITableViewController {
@@ -33,34 +34,46 @@ class TableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+
+        // setup(container: container)
+        manualUpdate()
+    }
+
+    private func setup(container: NSPersistentContainer) {
+
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        context.persistentStoreCoordinator = container.persistentStoreCoordinator
+        context.mergePolicy = MergePolicy.create()
+
+        let data = Bundle.getData("setup", bundle: .main)
+        let decoder = JSONDecoder()
+        decoder.userInfo[CodingUserInfoKey.context!] = context
+        do {
+            _ = try decoder.decode([Item].self, from: data)
+            try context.save()
+        } catch {
+            debugPrint(error)
+        }
     }
 
     @objc private func refresh() {
         let data = Bundle.getData("update", bundle: .main)
-        container.performBackgroundTask { [weak self] (context) in
-            context.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-            let decoder = JSONDecoder()
-            decoder.userInfo[CodingUserInfoKey.context!] = context
-            do {
-                _ = try decoder.decode([Item].self, from: data)
-                try context.save()
-            } catch { }
+        let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        context.persistentStoreCoordinator = container.persistentStoreCoordinator
+        context.mergePolicy = MergePolicy.create()
+
+        let decoder = JSONDecoder()
+        decoder.userInfo[CodingUserInfoKey.context!] = context
+        do {
+            _ = try decoder.decode([Item].self, from: data)
+            try context.save()
             DispatchQueue.main.async {
-                self?.manualUpdate()
+                self.manualUpdate()
             }
+        } catch {
+            debugPrint(error)
         }
     }
-    
-//    @objc private func refresh() {
-//        let data = NSDataAsset(name: "update")!.data
-//        let decoder = JSONDecoder()
-//        decoder.userInfo[CodingUserInfoKey.context!] = container.viewContext
-//        do {
-//            _ = try decoder.decode([Item].self, from: data)
-//            try container.viewContext.save()
-//        } catch { }
-//        manualUpdate()
-//    }
     
     private func manualUpdate() {
         try? fetchedResulstController.performFetch()
@@ -80,7 +93,13 @@ extension TableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     }
-    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let item = fetchedResulstController.fetchedObjects?[indexPath.row]
+        item?.linkedContacts?.forEach { print("\($0.id!) - \($0.name ?? "")") }
+    }
 }
 
 
@@ -89,9 +108,8 @@ extension TableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let item = fetchedResulstController.fetchedObjects?[indexPath.row]
         cell.textLabel?.text = item?.name
-        cell.detailTextLabel?.text = item?.info
+        cell.detailTextLabel?.text = "\(item?.info ?? "") - \(item?.linkedContacts?.first?.name ?? "Linked- Not Found")"
     }
-    
 }
 
 extension TableViewController: NSFetchedResultsControllerDelegate {
